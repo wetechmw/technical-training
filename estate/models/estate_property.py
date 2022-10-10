@@ -21,11 +21,15 @@ class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "manage estate properties"
 
-    name = fields.Char(required=True)
+    name = fields.Char(
+        required=True,
+    )
 
     description = fields.Text()
 
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(
+        default=True,
+    )
 
     state = fields.Selection(
         selection=[

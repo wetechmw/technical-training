@@ -26,6 +26,7 @@ class EstatePropertyOffer(models.Model):
 
     validity = fields.Integer(default=7)
 
+    # ToDo Datetime may be the better type, since it will be computed with create_date
     date_deadline = fields.Date(
         string="Deadline",
         compute="_compute_deadline",
@@ -33,6 +34,7 @@ class EstatePropertyOffer(models.Model):
         store=False,
     )
 
+    
     @api.depends("validity", "create_date")
     def _compute_deadline(self):
         for record in self:
